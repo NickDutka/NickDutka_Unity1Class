@@ -5,17 +5,42 @@ using TMPro;
 
 public class GuessingGame : MonoBehaviour
 {
-    public TextMeshProUGUI textGameObject;
+    public TextMeshProUGUI resultTextGameObject;
     public TMP_InputField inputFieldGameObject;
-    public void MyFunction()
+    public TMP_InputField guessFieldGameObject;
+    private int guessnumber;
+    private int upperbounds;
+    private int magicnumber;
+   
+
+    public void FindRandomNumber()
     {
-        textGameObject.text = "Hello " + inputFieldGameObject.text + " you are " + Random.Range(1, 100) + " years old.";
         
-        
-        Debug.Log("Goodbye");
+        upperbounds = int.Parse(inputFieldGameObject.text);
+        Debug.Log(upperbounds);
+
+        magicnumber = Random.Range(0, upperbounds);
+        Debug.Log(magicnumber);
     }
 
-    
+    public void CheckGuess()
+    {
+        guessnumber = int.Parse(guessFieldGameObject.text);
+
+        if (guessnumber == magicnumber)
+        {
+            resultTextGameObject.text = "Correct!";
+        }
+        else if (guessnumber < magicnumber)
+        {
+            resultTextGameObject.text = "incorrect, too low! Try again.";
+        }
+        else if (guessnumber > magicnumber)
+        {
+            resultTextGameObject.text = "incorrect, too high! Try again.";
+        }
+
+    }
 
 
     // Start is called before the first frame update
