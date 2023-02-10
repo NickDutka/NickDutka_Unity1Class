@@ -5,7 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - RegularTerrain
-  - MuddyTerain
+  - FinishLine
+  - MuddyTerrain
+  - SelectedPlayer
   layers:
   - Default
   - TransparentFX
