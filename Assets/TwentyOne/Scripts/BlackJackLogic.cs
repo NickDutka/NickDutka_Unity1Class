@@ -214,13 +214,14 @@ public class BlackJackLogic : MonoBehaviour
             Debug.Log("dealer chooses to hit");
 
             DealerHits();
-            if (dealerScore >= 17)
-            {
-                DealerStays();
-                Debug.Log("DealerStays");
-            }
         }
-       
+        if (dealerScore >= 17)
+        {
+            DealerStays();
+            gameCanvas.SetActive(false);
+            gameoverCanvas.SetActive(true);
+
+        }
     }
 
     public void DealerHits()
@@ -284,23 +285,34 @@ public class BlackJackLogic : MonoBehaviour
     }
 
     public void DealerStays()
-    {
-        
-        
-            if (dealerScore < 22)
-            {
-                UpdateScore();
-                if (playerScore > dealerScore)
+    { 
+        UpdateScore();
+        DealerStaysWinCondition();
+    }
 
+    public void DealerStaysWinCondition()
+    {
+        if (dealerScore < 22)
+        {
+            Debug.Log("DealerStaysWinStart");
+
+            if (playerScore < dealerScore)
+            {
+                Debug.Log("Dealer score is lower than 22 but greater than player score, dealer wins");
+
+                bustText.text = "Dealer wins!";
+            }
+            
+            else if (dealerScore == 21)
+            {
+                BlackJack();
+            }
+
+            else
+            {
                 bustText.text = "Player wins!";
             }
-            else if (dealerScore > 22)
-            {
-                UpdateScore();
-            
-            }
-            
-            
+        }
         
     }
 
