@@ -253,8 +253,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zRotation: 0
   rotationDifference: 0
-  scoreText: {fileID: 0}
+  score: 0
   alreadyCountedScore: 0
+  scoreText: {fileID: 166758418589302791}
   hasFallen: 0
   rotationDifferenceFromUp: 0
 --- !u!1 &14125060
@@ -387,8 +388,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zRotation: 0
   rotationDifference: 0
-  scoreText: {fileID: 0}
+  score: 0
   alreadyCountedScore: 0
+  scoreText: {fileID: 166758418589302791}
   hasFallen: 0
   rotationDifferenceFromUp: 0
 --- !u!1 &178623400
@@ -521,8 +523,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zRotation: 0
   rotationDifference: 0
-  scoreText: {fileID: 0}
+  score: 0
   alreadyCountedScore: 0
+  scoreText: {fileID: 166758418589302791}
   hasFallen: 0
   rotationDifferenceFromUp: 0
 --- !u!1001 &181376815
@@ -770,6 +773,7 @@ GameObject:
   m_Component:
   - component: {fileID: 392151577}
   - component: {fileID: 392151576}
+  - component: {fileID: 392151578}
   m_Layer: 0
   m_Name: Brain
   m_TagString: Untagged
@@ -814,6 +818,30 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &392151578
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 392151575}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4db9571c3b1cf5942acf650d0e4a4cc0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pins:
+  - {fileID: 1514239835}
+  - {fileID: 178623407}
+  - {fileID: 1014021047}
+  - {fileID: 5997598}
+  - {fileID: 575129255}
+  - {fileID: 503647441}
+  - {fileID: 14125067}
+  - {fileID: 1346261022}
+  - {fileID: 874032828}
+  - {fileID: 1678467274}
+  scoreText: {fileID: 166758418589302791}
 --- !u!1 &451211836
 GameObject:
   m_ObjectHideFlags: 0
@@ -1135,8 +1163,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zRotation: 0
   rotationDifference: 0
-  scoreText: {fileID: 0}
+  score: 0
   alreadyCountedScore: 0
+  scoreText: {fileID: 166758418589302791}
   hasFallen: 0
   rotationDifferenceFromUp: 0
 --- !u!1 &575129248
@@ -1269,8 +1298,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zRotation: 0
   rotationDifference: 0
-  scoreText: {fileID: 0}
+  score: 0
   alreadyCountedScore: 0
+  scoreText: {fileID: 166758418589302791}
   hasFallen: 0
   rotationDifferenceFromUp: 0
 --- !u!1 &727782315
@@ -1505,8 +1535,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zRotation: 0
   rotationDifference: 0
-  scoreText: {fileID: 0}
+  score: 0
   alreadyCountedScore: 0
+  scoreText: {fileID: 166758418589302791}
   hasFallen: 0
   rotationDifferenceFromUp: 0
 --- !u!1 &951818945
@@ -1741,8 +1772,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zRotation: 0
   rotationDifference: 0
-  scoreText: {fileID: 0}
+  score: 0
   alreadyCountedScore: 0
+  scoreText: {fileID: 166758418589302791}
   hasFallen: 0
   rotationDifferenceFromUp: 0
 --- !u!1 &1095703929
@@ -1973,8 +2005,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zRotation: 0
   rotationDifference: 0
-  scoreText: {fileID: 0}
+  score: 0
   alreadyCountedScore: 0
+  scoreText: {fileID: 166758418589302791}
   hasFallen: 0
   rotationDifferenceFromUp: 0
 --- !u!1 &1514239828
@@ -2107,8 +2140,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zRotation: 0
   rotationDifference: 0
-  scoreText: {fileID: 0}
+  score: 0
   alreadyCountedScore: 0
+  scoreText: {fileID: 166758418589302791}
   hasFallen: 0
   rotationDifferenceFromUp: 0
 --- !u!1 &1627226795
@@ -2354,8 +2388,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zRotation: 0
   rotationDifference: 0
-  scoreText: {fileID: 0}
+  score: 0
   alreadyCountedScore: 0
+  scoreText: {fileID: 166758418589302791}
   hasFallen: 0
   rotationDifferenceFromUp: 0
 --- !u!1 &1894007498 stripped

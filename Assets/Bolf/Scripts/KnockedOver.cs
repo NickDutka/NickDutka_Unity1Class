@@ -8,13 +8,11 @@ public class KnockedOver : MonoBehaviour
 {
     public float zRotation;
     public float rotationDifference;
+    public int score = 0;
+    public bool alreadyCountedScore = false;
+    public bool counted = false;
     public TMP_Text scoreText;
-    private int score;
-    public bool alreadyCountedScore;
-
     public bool hasFallen = false;
-
-
 
     public float rotationDifferenceFromUp;
 
@@ -27,8 +25,6 @@ public class KnockedOver : MonoBehaviour
 
     private void Update()
     {
-        
-
         // Set hasFallen to true or false based on whether the pin
         // has "fallen".
 
@@ -54,17 +50,17 @@ public class KnockedOver : MonoBehaviour
             
         }
 
-        if (hasFallen && !alreadyCountedScore)
+        if (hasFallen && alreadyCountedScore == false)
         {
-            score++;
-            scoreText.text = "score: " + score;
+            score = 1;
+            
             alreadyCountedScore = true;
         } 
 
-        foreach (Renderer r in GetComponentsInChildren<Renderer>())
-        {
-            r.material.color = hasFallen ? Color.red : Color.green;
-        }
+        //foreach (Renderer r in GetComponentsInChildren<Renderer>())
+        //{
+        //    r.material.color = hasFallen ? Color.red : Color.green;
+        //}
     }
 
 
