@@ -10,9 +10,9 @@ using System.Security.Cryptography;
 
 public class BowlingGameManager : MonoBehaviour
 {
-    public GameObject ball; // reference to the bowling ball
+    public GameObject ball; 
     public GameObject pinSetPrefab;
-    public float launchSpeed = 10f; // speed at which the ball is launched
+    public float launchSpeed = 10f; 
     public float launchSpeedMultiplier;
     public GameObject arrowPrefab;
     public GameObject velocityPrefab;
@@ -23,36 +23,26 @@ public class BowlingGameManager : MonoBehaviour
     public Transform pinSetSpawnPoint;
     public TMP_Text messageText;
     public GameObject restartButton, mainMenuButton;
-
     public ScoreManager scoreManager;
-
     public GameObject pinSet;
 
     public bool pinSpawned = false;
     public bool positionIsSelected = false;
     public bool velocityIsSelected = false;
-    public bool launched = false; // whether the ball has already been launched
+    public bool launched = false; 
     
     public enum State { PreLaunch, PostLaunch};
     public State currentState = State.PreLaunch;
     public int turnCounter = 1;
 
-
-
     private void Start()
     {
         restartButton.SetActive(false);
         mainMenuButton.SetActive(false);
-
         PositionText();
-
         velocityPrefab.SetActive(false); arrowPrefab.SetActive(false); velocityScalePrefab.SetActive(false);
-
         Instantiate(pinSetPrefab, pinSetSpawnPoint);
-
         pinSet = GameObject.FindGameObjectWithTag("Pin Set");
-
-
     }
     void Update()
     {
@@ -86,25 +76,17 @@ public class BowlingGameManager : MonoBehaviour
 
             if (Keyboard.current.rKey.wasPressedThisFrame)
             {
-                //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
                 Debug.Log("First turn R press");
                 positionIsSelected = false;
                 velocityIsSelected = false;
                 launched = false;
-                
                 ball.GetComponent<Rigidbody>().isKinematic = true;
                 ball.transform.SetPositionAndRotation(bowlingBallSpawnPoint.position, Quaternion.Euler(Vector3.zero));
-                Debug.Log("Ball rotation after reset: " + ball.transform.rotation.eulerAngles);
-                Debug.Log("Ball position after reset: " + ball.transform.position);
                 ballController.enabled = true;
-
                 turnCounter = 2;
                 currentState = State.PreLaunch;
-
                 PositionText();
-
                 Destroy(pinSet);
-
             }
         }
 
@@ -139,27 +121,8 @@ public class BowlingGameManager : MonoBehaviour
                 LaunchBall();
                 currentState = State.PostLaunch;
                 StartCoroutine(GameOver());
-                
             }
         }
-
-        //if (currentState == State.PostLaunch && turnCounter == 2)
-        //{
-        //    if (Keyboard.current.rKey.wasPressedThisFrame)
-        //    {
-                
-        //        Debug.Log("Second turn R press");
-        //        positionIsSelected = false;
-        //        velocityIsSelected = false;
-        //        launched = false;
-        //        ballController.enabled = true;
-        //        ball.transform.position = bowlingBallSpawnPoint.position;
-        //        ball.GetComponent<Rigidbody>().isKinematic = true;
-
-        //        StartCoroutine(GameOver());
-
-        //    }
-        //}
 
     }
     private IEnumerator RestartTextDelay()
@@ -175,16 +138,12 @@ public class BowlingGameManager : MonoBehaviour
 
     private IEnumerator GameOver()
     {
-
         yield return new WaitForSeconds(5f);
         Debug.Log("Waited for 5 seconds!");
-
         restartButton.SetActive(true);
         mainMenuButton.SetActive(true);
         messageTextObject.SetActive(true);
-
         messageText.text = "Game Over!";
-
     }
 
 
@@ -213,14 +172,10 @@ public class BowlingGameManager : MonoBehaviour
     void LaunchBall()
     {
         launched = true;
-
         messageTextObject.SetActive(false);
-
         // Get the current rotation of the arrow and convert it to a direction vector
         Vector3 arrowDirection = Quaternion.Euler(0f, arrowPrefab.transform.rotation.eulerAngles.y, 0f) * Vector3.forward;
-
         arrowPrefab.SetActive(false);
-
         // Launch the ball in the direction of the arrow
         ball.GetComponent<Rigidbody>().AddForce(arrowDirection * launchSpeed, ForceMode.Impulse);
     }

@@ -13,9 +13,7 @@ public class KnockedOver : MonoBehaviour
     public bool counted = false;
     public TMP_Text scoreText;
     public bool hasFallen = false;
-
     public float rotationDifferenceFromUp;
-
     private float initialZRotation;
 
     private void Start()
@@ -56,12 +54,5 @@ public class KnockedOver : MonoBehaviour
             
             alreadyCountedScore = true;
         } 
-
-        //foreach (Renderer r in GetComponentsInChildren<Renderer>())
-        //{
-        //    r.material.color = hasFallen ? Color.red : Color.green;
-        //}
     }
-
-
 }

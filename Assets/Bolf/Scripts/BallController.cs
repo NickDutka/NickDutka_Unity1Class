@@ -8,14 +8,10 @@ public class BallController : MonoBehaviour
 {
     public float strafeSpeed = 1f; // speed of strafing movement
     public float strafeDistance = 2f; // distance of strafing movement
-
     public GameObject messageTextObject;
-
     public TMP_Text messageText;
     public GameObject gutterText;
-
     public Transform bowlingBallSpawnPoint;
-
     private Vector3 startingPos; // starting position of the ball
     private bool strafingRight = true; // whether the ball is currently strafing right
 
@@ -49,10 +45,6 @@ public class BallController : MonoBehaviour
         {
             strafingRight = true;
         }
-
-       
-
-        
     }
 
     private void OnTriggerEnter(Collider other)
@@ -61,12 +53,5 @@ public class BallController : MonoBehaviour
         {
             gutterText.SetActive(true);
         }
-
-        //if (other.gameObject.CompareTag("ResetBall"))
-        //{
-            
-        //}
-    }
-
-    
+    } 
 }
