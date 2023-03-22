@@ -1,0 +1,48 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class MyJoystickLocomotion : MonoBehaviour
+{
+    // Joystick, teleporter, grab world, hike around,
+    // tongue (?), head controlled (gaze)
+
+    // Two objects, ourself and the rube goldberg machine.
+
+    // Joystick or grab seem fairly easy from a technical PoV
+
+    // Nick votes Joystick
+
+    // Parsanally (<--ART), favour teleport, because it's not continuous motion!
+
+    // Benball: don't do it badly. Thanks Ben.
+
+    public Transform head;
+
+    public float moveSpeed = 1;
+
+    private MyVrInputController input;
+
+    private void Awake()
+    {
+        input = GetComponent<MyVrInputController>();
+    }
+
+    private void Update()
+    {
+        Vector2 moveInput = input.Joystick;
+
+        // Convert our moveDirection from *local* space to *world* space.
+        Vector3 forward = head.forward;
+        forward.y = 0;
+        forward = forward.normalized;
+
+        Vector3 right = head.right;
+        right.y = 0;
+        right = right.normalized;
+
+        Vector3 moveDirection = forward * moveInput.y + right * moveInput.x;
+
+        transform.position += moveDirection * moveSpeed * Time.deltaTime;
+    }
+}

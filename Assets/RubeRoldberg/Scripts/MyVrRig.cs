@@ -28,7 +28,8 @@ public class MyVrRig : MonoBehaviour
             Vector3 leftPosition = XRController.leftHand.devicePosition.ReadValue();
             Quaternion leftRotation = XRController.leftHand.deviceRotation.ReadValue();
 
-            left.SetPositionAndRotation(leftPosition, leftRotation);
+            left.localPosition = leftPosition;
+            left.localRotation = leftRotation;
         }
 
         if (XRController.rightHand != null)
@@ -36,7 +37,8 @@ public class MyVrRig : MonoBehaviour
             Vector3 rightPosition = XRController.rightHand.devicePosition.ReadValue();
             Quaternion rightRotation = XRController.rightHand.deviceRotation.ReadValue();
 
-            right.SetPositionAndRotation(rightPosition, rightRotation);
+            right.localPosition = rightPosition;
+            right.localRotation = rightRotation;
         }
 
         XRHMD hmd = InputSystem.GetDevice<XRHMD>();
@@ -46,7 +48,8 @@ public class MyVrRig : MonoBehaviour
             Vector3 headPosition = hmd.devicePosition.ReadValue();
             Quaternion headRotation = hmd.deviceRotation.ReadValue();
 
-            head.SetPositionAndRotation(headPosition, headRotation);
+            head.localPosition = headPosition;
+            head.localRotation = headRotation;
         }
     }
 

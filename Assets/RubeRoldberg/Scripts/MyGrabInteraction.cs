@@ -4,11 +4,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using Unity.XR.Oculus.Input;
 using UnityEngine.InputSystem.XR;
+using UnityEngine.SceneManagement;
 
 public class MyGrabInteraction : MonoBehaviour
 {
     public bool primaryButtonWasPressed;
+    public bool yButtonWasPressed;
 
+    
     VRInputActions vrInputActions;
 
     // Transform heldObject;
@@ -27,9 +30,30 @@ public class MyGrabInteraction : MonoBehaviour
 
     private void Update()
     {
+        // Stop Physics
+        if (vrInputActions.Default.LeftHandPrimary.WasPressedThisFrame())
+        {
+
+        }
+        // Reset Scene
+        if (vrInputActions.Default.LeftHandSecondary.WasPressedThisFrame())
+        {
+            Debug.Log("Y Button was Pressed");
+
+            GameObject[] interactableObjects = GameObject.FindGameObjectsWithTag("Interactable");
+
+            foreach(GameObject interactable in interactableObjects)
+            {
+                Destroy(interactable);
+            }
+
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
+
+        // Grab Interaction
         if (XRController.rightHand != null)
         {
-            primaryButtonWasPressed = vrInputActions.Default.Primary.WasPressedThisFrame();
+            primaryButtonWasPressed = vrInputActions.Default.RightHandPrimary.WasPressedThisFrame();
             
         }
 

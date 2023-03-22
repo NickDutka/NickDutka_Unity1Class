@@ -28,9 +28,14 @@ public class MyVrButtonInput : MonoBehaviour
         //    }
         //}
 
-        if (vrInputActions.Default.Primary.WasPressedThisFrame())
+        if (vrInputActions.Default.RightHandPrimary.WasPressedThisFrame())
         {
-            Debug.Log("Click");
+            Debug.Log("A button Click");
+        }
+
+        if (vrInputActions.Default.LeftHandSecondary.WasPressedThisFrame())
+        {
+            Debug.Log("Y button click");
         }
     }
 }

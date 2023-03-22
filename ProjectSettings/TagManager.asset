@@ -11,6 +11,8 @@ TagManager:
   - Gutter
   - ResetBall
   - Pin Set
+  - PlayerRig
+  - Interactable
   layers:
   - Default
   - TransparentFX

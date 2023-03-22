@@ -6,9 +6,45 @@
             "id": "ed10a9da-ae54-4f06-b100-0c88c5a4d531",
             "actions": [
                 {
-                    "name": "Primary",
+                    "name": "RightHandPrimary",
                     "type": "Button",
                     "id": "1b062388-523a-4c4c-b8df-791aafb26e21",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Joystick",
+                    "type": "Value",
+                    "id": "d75c3996-a51b-499b-8a7d-7574acaaec6c",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "RightTrigger",
+                    "type": "Value",
+                    "id": "7e0c4ad4-7e70-494a-926a-54117b874461",
+                    "expectedControlType": "Axis",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "LeftHandSecondary",
+                    "type": "Button",
+                    "id": "7fba62e0-c4d3-47bd-ab41-035538ea68f8",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "LeftHandPrimary",
+                    "type": "Button",
+                    "id": "1f62641c-9f70-4444-8f48-42b6a30c9e06",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -19,11 +55,55 @@
                 {
                     "name": "",
                     "id": "b3481af1-2a21-4396-ab56-b55190ea8919",
-                    "path": "<OculusTouchController>/primaryButton",
+                    "path": "<OculusTouchController>{RightHand}/primaryButton",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Primary",
+                    "action": "RightHandPrimary",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "7ff05fb4-6fcf-4a60-8cc0-cacae4336a47",
+                    "path": "<OculusTouchController>/thumbstick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Joystick",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "4186e05e-fe9d-4428-8f87-fb5a199c2a27",
+                    "path": "<OculusTouchController>{RightHand}/trigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RightTrigger",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "7a110cc0-799f-4aa0-942c-6fe133018efd",
+                    "path": "<OculusTouchController>{LeftHand}/secondaryButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "LeftHandSecondary",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "35ff6127-6f65-4593-acff-6462fbbbebdd",
+                    "path": "<OculusTouchController>{LeftHand}/primaryButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "LeftHandPrimary",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
