@@ -1539,7 +1539,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 8605506c35a50194280b0ace26a6acad, type: 2}
+  - {fileID: 2596496086163683405, guid: 2e55ed02810209847a24ef29924fca8e, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1853,7 +1853,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1571092806}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -1.809, z: 1.85}
+  m_LocalPosition: {x: 0.46, y: -1.809, z: 2.87}
   m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1911,6 +1911,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tabletController: {fileID: 1382072016}
+  rotateSpeedFactor: 1
 --- !u!1 &1692703543
 GameObject:
   m_ObjectHideFlags: 0

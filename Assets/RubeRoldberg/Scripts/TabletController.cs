@@ -7,9 +7,14 @@ public class TabletController : MonoBehaviour
 
     public Transform tabletController;
 
+    public float rotateSpeedFactor = 1;
 
-    void Update()
+
+    private void LateUpdate()
     {
-        transform.rotation = tabletController.rotation;
+        Quaternion tabletControllerRotation = tabletController.rotation;
+
+        transform.rotation = Quaternion.Slerp(transform.rotation, tabletControllerRotation, rotateSpeedFactor * Time.deltaTime);
+
     }
 }
