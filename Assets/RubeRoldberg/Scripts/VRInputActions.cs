@@ -28,6 +28,15 @@ public partial class @VRInputActions : IInputActionCollection2, IDisposable
             ""id"": ""ed10a9da-ae54-4f06-b100-0c88c5a4d531"",
             ""actions"": [
                 {
+                    ""name"": ""Joystick"",
+                    ""type"": ""Value"",
+                    ""id"": ""d75c3996-a51b-499b-8a7d-7574acaaec6c"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
                     ""name"": ""RightHandPrimary"",
                     ""type"": ""Button"",
                     ""id"": ""1b062388-523a-4c4c-b8df-791aafb26e21"",
@@ -37,13 +46,13 @@ public partial class @VRInputActions : IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Joystick"",
-                    ""type"": ""Value"",
-                    ""id"": ""d75c3996-a51b-499b-8a7d-7574acaaec6c"",
-                    ""expectedControlType"": ""Vector2"",
+                    ""name"": ""RightHandSecondary"",
+                    ""type"": ""Button"",
+                    ""id"": ""cd0ed68f-172a-4cbf-8b67-035cd5d1e357"",
+                    ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
-                    ""initialStateCheck"": true
+                    ""initialStateCheck"": false
                 },
                 {
                     ""name"": ""RightTrigger"",
@@ -55,18 +64,18 @@ public partial class @VRInputActions : IInputActionCollection2, IDisposable
                     ""initialStateCheck"": true
                 },
                 {
-                    ""name"": ""LeftHandSecondary"",
+                    ""name"": ""LeftHandPrimary"",
                     ""type"": ""Button"",
-                    ""id"": ""7fba62e0-c4d3-47bd-ab41-035538ea68f8"",
+                    ""id"": ""1f62641c-9f70-4444-8f48-42b6a30c9e06"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""LeftHandPrimary"",
+                    ""name"": ""LeftHandSecondary"",
                     ""type"": ""Button"",
-                    ""id"": ""1f62641c-9f70-4444-8f48-42b6a30c9e06"",
+                    ""id"": ""7fba62e0-c4d3-47bd-ab41-035538ea68f8"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -82,17 +91,6 @@ public partial class @VRInputActions : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""RightHandPrimary"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""7ff05fb4-6fcf-4a60-8cc0-cacae4336a47"",
-                    ""path"": ""<OculusTouchController>/thumbstick"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Joystick"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -120,6 +118,28 @@ public partial class @VRInputActions : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""454c2bd0-747c-415f-b3f1-d59cfe4607c2"",
+                    ""path"": ""<OculusTouchController>{RightHand}/secondaryButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""RightHandSecondary"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""7ff05fb4-6fcf-4a60-8cc0-cacae4336a47"",
+                    ""path"": ""<OculusTouchController>/thumbstick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Joystick"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""35ff6127-6f65-4593-acff-6462fbbbebdd"",
                     ""path"": ""<OculusTouchController>{LeftHand}/primaryButton"",
                     ""interactions"": """",
@@ -136,11 +156,12 @@ public partial class @VRInputActions : IInputActionCollection2, IDisposable
 }");
         // Default
         m_Default = asset.FindActionMap("Default", throwIfNotFound: true);
-        m_Default_RightHandPrimary = m_Default.FindAction("RightHandPrimary", throwIfNotFound: true);
         m_Default_Joystick = m_Default.FindAction("Joystick", throwIfNotFound: true);
+        m_Default_RightHandPrimary = m_Default.FindAction("RightHandPrimary", throwIfNotFound: true);
+        m_Default_RightHandSecondary = m_Default.FindAction("RightHandSecondary", throwIfNotFound: true);
         m_Default_RightTrigger = m_Default.FindAction("RightTrigger", throwIfNotFound: true);
-        m_Default_LeftHandSecondary = m_Default.FindAction("LeftHandSecondary", throwIfNotFound: true);
         m_Default_LeftHandPrimary = m_Default.FindAction("LeftHandPrimary", throwIfNotFound: true);
+        m_Default_LeftHandSecondary = m_Default.FindAction("LeftHandSecondary", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -200,20 +221,22 @@ public partial class @VRInputActions : IInputActionCollection2, IDisposable
     // Default
     private readonly InputActionMap m_Default;
     private IDefaultActions m_DefaultActionsCallbackInterface;
-    private readonly InputAction m_Default_RightHandPrimary;
     private readonly InputAction m_Default_Joystick;
+    private readonly InputAction m_Default_RightHandPrimary;
+    private readonly InputAction m_Default_RightHandSecondary;
     private readonly InputAction m_Default_RightTrigger;
-    private readonly InputAction m_Default_LeftHandSecondary;
     private readonly InputAction m_Default_LeftHandPrimary;
+    private readonly InputAction m_Default_LeftHandSecondary;
     public struct DefaultActions
     {
         private @VRInputActions m_Wrapper;
         public DefaultActions(@VRInputActions wrapper) { m_Wrapper = wrapper; }
-        public InputAction @RightHandPrimary => m_Wrapper.m_Default_RightHandPrimary;
         public InputAction @Joystick => m_Wrapper.m_Default_Joystick;
+        public InputAction @RightHandPrimary => m_Wrapper.m_Default_RightHandPrimary;
+        public InputAction @RightHandSecondary => m_Wrapper.m_Default_RightHandSecondary;
         public InputAction @RightTrigger => m_Wrapper.m_Default_RightTrigger;
-        public InputAction @LeftHandSecondary => m_Wrapper.m_Default_LeftHandSecondary;
         public InputAction @LeftHandPrimary => m_Wrapper.m_Default_LeftHandPrimary;
+        public InputAction @LeftHandSecondary => m_Wrapper.m_Default_LeftHandSecondary;
         public InputActionMap Get() { return m_Wrapper.m_Default; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -223,50 +246,57 @@ public partial class @VRInputActions : IInputActionCollection2, IDisposable
         {
             if (m_Wrapper.m_DefaultActionsCallbackInterface != null)
             {
-                @RightHandPrimary.started -= m_Wrapper.m_DefaultActionsCallbackInterface.OnRightHandPrimary;
-                @RightHandPrimary.performed -= m_Wrapper.m_DefaultActionsCallbackInterface.OnRightHandPrimary;
-                @RightHandPrimary.canceled -= m_Wrapper.m_DefaultActionsCallbackInterface.OnRightHandPrimary;
                 @Joystick.started -= m_Wrapper.m_DefaultActionsCallbackInterface.OnJoystick;
                 @Joystick.performed -= m_Wrapper.m_DefaultActionsCallbackInterface.OnJoystick;
                 @Joystick.canceled -= m_Wrapper.m_DefaultActionsCallbackInterface.OnJoystick;
+                @RightHandPrimary.started -= m_Wrapper.m_DefaultActionsCallbackInterface.OnRightHandPrimary;
+                @RightHandPrimary.performed -= m_Wrapper.m_DefaultActionsCallbackInterface.OnRightHandPrimary;
+                @RightHandPrimary.canceled -= m_Wrapper.m_DefaultActionsCallbackInterface.OnRightHandPrimary;
+                @RightHandSecondary.started -= m_Wrapper.m_DefaultActionsCallbackInterface.OnRightHandSecondary;
+                @RightHandSecondary.performed -= m_Wrapper.m_DefaultActionsCallbackInterface.OnRightHandSecondary;
+                @RightHandSecondary.canceled -= m_Wrapper.m_DefaultActionsCallbackInterface.OnRightHandSecondary;
                 @RightTrigger.started -= m_Wrapper.m_DefaultActionsCallbackInterface.OnRightTrigger;
                 @RightTrigger.performed -= m_Wrapper.m_DefaultActionsCallbackInterface.OnRightTrigger;
                 @RightTrigger.canceled -= m_Wrapper.m_DefaultActionsCallbackInterface.OnRightTrigger;
-                @LeftHandSecondary.started -= m_Wrapper.m_DefaultActionsCallbackInterface.OnLeftHandSecondary;
-                @LeftHandSecondary.performed -= m_Wrapper.m_DefaultActionsCallbackInterface.OnLeftHandSecondary;
-                @LeftHandSecondary.canceled -= m_Wrapper.m_DefaultActionsCallbackInterface.OnLeftHandSecondary;
                 @LeftHandPrimary.started -= m_Wrapper.m_DefaultActionsCallbackInterface.OnLeftHandPrimary;
                 @LeftHandPrimary.performed -= m_Wrapper.m_DefaultActionsCallbackInterface.OnLeftHandPrimary;
                 @LeftHandPrimary.canceled -= m_Wrapper.m_DefaultActionsCallbackInterface.OnLeftHandPrimary;
+                @LeftHandSecondary.started -= m_Wrapper.m_DefaultActionsCallbackInterface.OnLeftHandSecondary;
+                @LeftHandSecondary.performed -= m_Wrapper.m_DefaultActionsCallbackInterface.OnLeftHandSecondary;
+                @LeftHandSecondary.canceled -= m_Wrapper.m_DefaultActionsCallbackInterface.OnLeftHandSecondary;
             }
             m_Wrapper.m_DefaultActionsCallbackInterface = instance;
             if (instance != null)
             {
-                @RightHandPrimary.started += instance.OnRightHandPrimary;
-                @RightHandPrimary.performed += instance.OnRightHandPrimary;
-                @RightHandPrimary.canceled += instance.OnRightHandPrimary;
                 @Joystick.started += instance.OnJoystick;
                 @Joystick.performed += instance.OnJoystick;
                 @Joystick.canceled += instance.OnJoystick;
+                @RightHandPrimary.started += instance.OnRightHandPrimary;
+                @RightHandPrimary.performed += instance.OnRightHandPrimary;
+                @RightHandPrimary.canceled += instance.OnRightHandPrimary;
+                @RightHandSecondary.started += instance.OnRightHandSecondary;
+                @RightHandSecondary.performed += instance.OnRightHandSecondary;
+                @RightHandSecondary.canceled += instance.OnRightHandSecondary;
                 @RightTrigger.started += instance.OnRightTrigger;
                 @RightTrigger.performed += instance.OnRightTrigger;
                 @RightTrigger.canceled += instance.OnRightTrigger;
-                @LeftHandSecondary.started += instance.OnLeftHandSecondary;
-                @LeftHandSecondary.performed += instance.OnLeftHandSecondary;
-                @LeftHandSecondary.canceled += instance.OnLeftHandSecondary;
                 @LeftHandPrimary.started += instance.OnLeftHandPrimary;
                 @LeftHandPrimary.performed += instance.OnLeftHandPrimary;
                 @LeftHandPrimary.canceled += instance.OnLeftHandPrimary;
+                @LeftHandSecondary.started += instance.OnLeftHandSecondary;
+                @LeftHandSecondary.performed += instance.OnLeftHandSecondary;
+                @LeftHandSecondary.canceled += instance.OnLeftHandSecondary;
             }
         }
     }
     public DefaultActions @Default => new DefaultActions(this);
     public interface IDefaultActions
     {
-        void OnRightHandPrimary(InputAction.CallbackContext context);
         void OnJoystick(InputAction.CallbackContext context);
+        void OnRightHandPrimary(InputAction.CallbackContext context);
+        void OnRightHandSecondary(InputAction.CallbackContext context);
         void OnRightTrigger(InputAction.CallbackContext context);
-        void OnLeftHandSecondary(InputAction.CallbackContext context);
         void OnLeftHandPrimary(InputAction.CallbackContext context);
+        void OnLeftHandSecondary(InputAction.CallbackContext context);
     }
 }

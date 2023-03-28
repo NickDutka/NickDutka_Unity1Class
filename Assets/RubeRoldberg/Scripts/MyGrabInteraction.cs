@@ -5,14 +5,25 @@ using UnityEngine;
 using Unity.XR.Oculus.Input;
 using UnityEngine.InputSystem.XR;
 using UnityEngine.SceneManagement;
+using Unity.VisualScripting;
 
 public class MyGrabInteraction : MonoBehaviour
 {
     public bool primaryButtonWasPressed;
     public bool yButtonWasPressed;
+    public bool physicsEnabled = true;
+    public bool transparencyEnabled = false;
 
-    
+    public Material transparentMaterial;
+    public Material fencetopMaterial;
+    public Material fencebaseMaterial;
+    public Material floorbaseMaterial;
+
+
+    public GameObject physicsController;
+    //PhysicsSimulationController physicsSimulationController;
     VRInputActions vrInputActions;
+    public GameObject mazeGameObject;
 
     // Transform heldObject;
     Rigidbody heldObject;
@@ -24,16 +35,28 @@ public class MyGrabInteraction : MonoBehaviour
 
     private void Awake()
     {
+        physicsEnabled = true;
+        transparencyEnabled = false;
         vrInputActions = new VRInputActions();
         vrInputActions.Enable();
     }
 
     private void Update()
     {
-        // Stop Physics
         if (vrInputActions.Default.LeftHandPrimary.WasPressedThisFrame())
         {
-
+            if (physicsEnabled)
+            {
+                Debug.Log("X was pressed & phys enabled");
+                physicsController.GetComponent<PhysicsSimulationController>().enabled = false;
+                physicsEnabled = false;
+            }
+            else
+            {
+                Debug.Log("X was pressed & phys disabled");
+                physicsController.GetComponent<PhysicsSimulationController>().enabled = true;
+                physicsEnabled = true;
+            }
         }
         // Reset Scene
         if (vrInputActions.Default.LeftHandSecondary.WasPressedThisFrame())
@@ -49,6 +72,39 @@ public class MyGrabInteraction : MonoBehaviour
 
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
+
+        if(vrInputActions.Default.RightHandSecondary.WasPressedThisFrame())
+        {
+            if (transparencyEnabled)
+            {
+                Debug.Log("B pressed");
+                MeshRenderer meshRenderer = mazeGameObject.GetComponent<MeshRenderer>(); // get the MeshRenderer component
+                Material[] materials = meshRenderer.materials; // get the array of materials
+                for (int i = 0; i < materials.Length; i++) // loop through each material
+                {
+                    materials[0] = fencetopMaterial;
+                    materials[1] = fencebaseMaterial;
+                    materials[2] = floorbaseMaterial;
+                }
+                meshRenderer.materials = materials; // set the updated array of materials to the MeshRenderer component
+                transparencyEnabled = false;
+            }
+            else
+            {
+                Debug.Log("B pressed");
+                //Material transparentMaterial = Resources.Load<Material>("TransparentMaterial"); // load the transparent material
+                MeshRenderer meshRenderer = mazeGameObject.GetComponent<MeshRenderer>(); // get the MeshRenderer component
+                Material[] materials = meshRenderer.materials; // get the array of materials
+                for (int i = 0; i < materials.Length; i++) // loop through each material
+                {
+                    materials[i] = transparentMaterial; // set the material to the transparent material
+                }
+                meshRenderer.materials = materials; // set the updated array of materials to the MeshRenderer component
+                transparencyEnabled = true;
+            }
+            
+        }
+        
 
         // Grab Interaction
         if (XRController.rightHand != null)
@@ -85,6 +141,8 @@ public class MyGrabInteraction : MonoBehaviour
     // This runs for EVERY physics step.
     private void FixedUpdate()
     {
+       
+
         if (heldObject != null)
         {
             // Calculate the velocity in units per *frame*

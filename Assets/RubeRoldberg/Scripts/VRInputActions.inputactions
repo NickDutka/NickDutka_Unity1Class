@@ -6,6 +6,15 @@
             "id": "ed10a9da-ae54-4f06-b100-0c88c5a4d531",
             "actions": [
                 {
+                    "name": "Joystick",
+                    "type": "Value",
+                    "id": "d75c3996-a51b-499b-8a7d-7574acaaec6c",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
                     "name": "RightHandPrimary",
                     "type": "Button",
                     "id": "1b062388-523a-4c4c-b8df-791aafb26e21",
@@ -15,13 +24,13 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Joystick",
-                    "type": "Value",
-                    "id": "d75c3996-a51b-499b-8a7d-7574acaaec6c",
-                    "expectedControlType": "Vector2",
+                    "name": "RightHandSecondary",
+                    "type": "Button",
+                    "id": "cd0ed68f-172a-4cbf-8b67-035cd5d1e357",
+                    "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
-                    "initialStateCheck": true
+                    "initialStateCheck": false
                 },
                 {
                     "name": "RightTrigger",
@@ -33,18 +42,18 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "LeftHandSecondary",
+                    "name": "LeftHandPrimary",
                     "type": "Button",
-                    "id": "7fba62e0-c4d3-47bd-ab41-035538ea68f8",
+                    "id": "1f62641c-9f70-4444-8f48-42b6a30c9e06",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
                 },
                 {
-                    "name": "LeftHandPrimary",
+                    "name": "LeftHandSecondary",
                     "type": "Button",
-                    "id": "1f62641c-9f70-4444-8f48-42b6a30c9e06",
+                    "id": "7fba62e0-c4d3-47bd-ab41-035538ea68f8",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -60,17 +69,6 @@
                     "processors": "",
                     "groups": "",
                     "action": "RightHandPrimary",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "7ff05fb4-6fcf-4a60-8cc0-cacae4336a47",
-                    "path": "<OculusTouchController>/thumbstick",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Joystick",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -93,6 +91,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "LeftHandSecondary",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "454c2bd0-747c-415f-b3f1-d59cfe4607c2",
+                    "path": "<OculusTouchController>{RightHand}/secondaryButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RightHandSecondary",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "7ff05fb4-6fcf-4a60-8cc0-cacae4336a47",
+                    "path": "<OculusTouchController>/thumbstick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Joystick",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },

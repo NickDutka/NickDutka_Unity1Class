@@ -13,6 +13,12 @@ TagManager:
   - Pin Set
   - PlayerRig
   - Interactable
+  - Rupee
+  - RupeeBlue
+  - RupeeRed
+  - BallReset
+  - WinZone
+  - TabletReset
   layers:
   - Default
   - TransparentFX
