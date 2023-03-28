@@ -16,5 +16,6 @@ public class TabletController : MonoBehaviour
 
         transform.rotation = Quaternion.Slerp(transform.rotation, tabletControllerRotation, rotateSpeedFactor * Time.deltaTime);
 
+
     }
 }
