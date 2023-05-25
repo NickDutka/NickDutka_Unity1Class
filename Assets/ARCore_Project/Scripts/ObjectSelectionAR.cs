@@ -6,6 +6,7 @@ using TMPro;
 using UnityEngine.UI;
 using System.Security.Cryptography.X509Certificates;
 
+
 public class ObjectSelectionAR : MonoBehaviour
 {
     private ARRaycastManager raycastManager;
@@ -53,7 +54,7 @@ public class ObjectSelectionAR : MonoBehaviour
         {
             Touch touch = Input.GetTouch(0);
 
-            if (touch.phase == TouchPhase.Began)
+            if (touch.phase == UnityEngine.TouchPhase.Began)
             {
                 return;
             }

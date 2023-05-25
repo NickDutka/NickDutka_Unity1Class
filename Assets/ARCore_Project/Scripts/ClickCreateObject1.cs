@@ -5,6 +5,8 @@ using UnityEngine.UI;
 using TMPro;
 using System;
 using UnityEngine.EventSystems;
+using UnityEngine.XR.ARFoundation;
+using UnityEngine.XR.ARSubsystems;
 
 public class ClickCreateObject1 : MonoBehaviour
 {
@@ -53,17 +55,21 @@ public class ClickCreateObject1 : MonoBehaviour
 
         pos = Mouse.current.position.ReadValue();
 #else
-        if (Input.touchCount > 0)
-        {
-            Touch touch = Input.GetTouch(0);
+if (Input.touchCount > 0)
+{
+    UnityEngine.Touch touch = Input.GetTouch(0);
 
-            if (touch.phase == TouchPhase.Began)
-            {
-                return;
-            }
-        }
-
-        pos = Input.GetTouch(0).position;
+    if (touch.phase == UnityEngine.TouchPhase.Began)
+    {
+        return;
+    }
+    
+    pos = touch.position;
+}
+else
+{
+    return;
+}
 #endif
 
         Debug.Log($"Clicked: {pos}");

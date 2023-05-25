@@ -4,6 +4,8 @@ using UnityEngine.InputSystem;
 using UnityEngine.UI;
 using TMPro;
 using System;
+using UnityEngine.XR.ARFoundation;
+using UnityEngine.XR.ARSubsystems;
 
 public class ClickCreateObject : MonoBehaviour
 {
@@ -36,7 +38,7 @@ public class ClickCreateObject : MonoBehaviour
         {
             Touch touch = Input.GetTouch(0);
 
-            if (touch.phase == TouchPhase.Began)
+            if (touch.phase == UnityEngine.TouchPhase.Began)
             {
                 return;
             }
