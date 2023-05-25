@@ -15,7 +15,7 @@ EditorBuildSettings:
     path: Assets/Bolf/Scene/Bolf_1.0_Level2.unity
     guid: f46f815d133d57b4db234940e4190e57
   - enabled: 1
-    path: Assets/ARCore_Project/ARScene.unity
+    path: Assets/ARCore_Project/Scenes/ARScene.unity
     guid: 3232598c56464364eb281665d23b08c6
   m_configObjects:
     UnityEditor.XR.ARCore.ARCoreSettings: {fileID: 11400000, guid: 2c503d7583949c846849d2fbdb6370bf, type: 2}
